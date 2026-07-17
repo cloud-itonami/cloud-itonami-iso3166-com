@@ -1,0 +1,14 @@
+;; data/culture-tx.edn — DataScript tx-data derived from src/culture/facts.cljc
+;; `culture.facts/catalog` (ADR-2607171400 addendum 2, Wave 1 country-level).
+;; Same shape across every cloud-itonami-iso3166-* sibling. Do not hand-edit;
+;; regenerate from the catalog.
+
+[
+#:culture{:id "com.dish.langouste-a-la-vanille", :name "Langouste à la vanille", :country "COM", :kind :dish, :summary "Small lobsters in vanilla sauce, a seafood dish of Comorian cuisine.", :url "https://en.wikipedia.org/wiki/Comorian_cuisine", :url-provenance :wikipedia-en, :retrieved-at "2026-07-17"}
+#:culture{:id "com.dish.mtsolola", :name "M'tsolola", :country "COM", :kind :dish, :summary "Comorian dish of firm-fleshed fish such as swordfish cooked with plantains and greens such as cassava leaves in coconut milk.", :url "https://en.wikipedia.org/wiki/Comorian_cuisine", :url-provenance :wikipedia-en, :retrieved-at "2026-07-17"}
+#:culture{:id "com.dish.mshakiki", :name "Mshakiki", :country "COM", :kind :dish, :summary "Marinated skewered beef, a meat dish of Comorian cuisine.", :url "https://en.wikipedia.org/wiki/Comorian_cuisine", :url-provenance :wikipedia-en, :retrieved-at "2026-07-17"}
+#:culture{:id "com.dish.mkatra-siniya", :name "Mkatra siniya", :country "COM", :kind :dish, :summary "Comorian spice cake, a dessert of Comorian cuisine.", :url "https://en.wikipedia.org/wiki/Comorian_cuisine", :url-provenance :wikipedia-en, :retrieved-at "2026-07-17"}
+#:culture{:id "com.product.ylang-ylang", :name "Ylang-ylang", :country "COM", :kind :product, :summary "Tree whose essential oil is a signature Comorian product; ylang-ylang essential oil made up 29% of the Comoros' annual export (1998).", :url "https://en.wikipedia.org/wiki/Ylang-ylang", :url-provenance :wikipedia-en, :retrieved-at "2026-07-17"}
+#:culture{:id "com.festival.grand-mariage", :name "Grand mariage", :country "COM", :kind :festival, :summary "Fundamental cultural institution of the Comoros and the last customary rite of passage, celebrated with elaborate multi-day ceremonies, gift exchanges and family gatherings.", :url "https://fr.wikipedia.org/wiki/Grand_mariage", :url-provenance :wikipedia-fr, :retrieved-at "2026-07-17"}
+#:culture{:url "https://en.wikipedia.org/wiki/Mount_Karthala", :id "com.heritage.mount-karthala", :kind :heritage, :name-local "Karthala", :country "COM", :retrieved-at "2026-07-17", :summary "Active shield volcano on Grande Comore in the Comoros, protected by Karthala National Park (designated 2010) and designated a Ramsar wetland site in 2006.", :name "Mount Karthala", :url-provenance :wikipedia-en}
+]
