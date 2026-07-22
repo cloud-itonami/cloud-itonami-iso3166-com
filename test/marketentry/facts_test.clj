@@ -1,0 +1,52 @@
+(ns marketentry.facts-test
+  (:require [clojure.test :refer [deftest is testing]]
+            [marketentry.facts :as facts]))
+
+(deftest com-has-spec-basis
+  (let [sb (facts/spec-basis "COM")]
+    (is (some? sb))
+    (is (string? (:provenance sb)))
+    (is (seq (:required-evidence sb)))
+    (is (some? (facts/corporate-number-spec-basis "COM")))
+    (is (some? (facts/business-registration-spec-basis "COM")))
+    (is (some? (facts/armp-exclusion-spec-basis "COM")))))
+
+(deftest com-rep-spec-basis-is-honest-nil
+  (testing "COM's rep-spec-basis is nil -- this iteration found no jurisdiction-specific authorized-representative regime distinct from ordinary company incorporation, and declines to invent one"
+    (is (nil? (facts/rep-spec-basis "COM")))))
+
+(deftest com-business-registration-is-a-different-body-from-tax
+  (testing "business/company registration (ANPI/Tribunal de Commerce) and tax registration (AGID) are administered by different authorities -- see namespace docstring"
+    (let [reg (facts/business-registration-spec-basis "COM")
+          tax (facts/corporate-number-spec-basis "COM")]
+      (is (some? reg))
+      (is (some? tax))
+      (is (not= (:business-registration-owner-authority reg)
+                (:corporate-number-owner-authority tax))))))
+
+(deftest com-armp-exclusion-is-the-flagship-spec-basis
+  (testing "the ARMP exclusion/prescription mechanism is grounded in the Code des Marchés Publics 2022's own Art.75 7° -- a real, government-empowered blacklist power, not fabricated"
+    (let [ex (facts/armp-exclusion-spec-basis "COM")]
+      (is (some? ex))
+      (is (= 5 (:armp-exclusion-prescription-years ex)))
+      (is (string? (:armp-exclusion-legal-basis ex)))
+      (is (string? (:armp-exclusion-owner-authority ex))))))
+
+(deftest unknown-jurisdiction-has-no-spec-basis
+  (is (nil? (facts/spec-basis "ATL")))
+  (is (nil? (facts/spec-basis "ZZZ")))
+  (is (nil? (facts/business-registration-spec-basis "ATL")))
+  (is (nil? (facts/armp-exclusion-spec-basis "ATL"))))
+
+(deftest required-evidence-satisfied
+  (let [sb (facts/spec-basis "COM")
+        all (:required-evidence sb)]
+    (is (true? (facts/required-evidence-satisfied? "COM" all)))
+    (is (not (facts/required-evidence-satisfied? "COM" (take 1 all))))
+    (is (nil? (facts/required-evidence-satisfied? "ATL" all)))))
+
+(deftest coverage-is-honest
+  (let [c (facts/coverage ["COM" "USA" "ATL"])]
+    (is (= 3 (:requested c)))
+    (is (= 2 (:covered c)))
+    (is (= ["ATL"] (:missing-jurisdictions c)))))
