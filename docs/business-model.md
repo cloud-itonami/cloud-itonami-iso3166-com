@@ -5,7 +5,7 @@ Market-entry compliance for the Union of the Comoros.
 - Autorité de Régulation des Marchés Publics (ARMP) public procurement --
   Comores Marchés Publics, a real named e-procurement/online tender-
   management system (décret n°23-080/PR du 15 août 2023), governed by
-  the Code des Marchés Publics 2022 (see `src/marketentry/facts.cljc`)
+  the Code des Marchés Publics 2022 (see `src/marketentry/facts.kotoba`)
 - Agence Nationale pour la Promotion des Investissements (ANPI, guichet
   unique) company/business registration; RCCM certificate issued by the
   Tribunal de Commerce under directly-applicable OHADA Uniform Acts
