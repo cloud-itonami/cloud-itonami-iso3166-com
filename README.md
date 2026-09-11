@@ -30,7 +30,7 @@ bridge):
   recomputes whether an engagement's own declared ARMP exclusion
   decision has already prescribed under the Code's own five-year
   window (Art.75 7°).
-- `src/statute/facts.cljc` -- general-law catalog: the OHADA Acte
+- `src/statute/facts.cljk` -- general-law catalog: the OHADA Acte
   Uniforme révisé relatif au droit des sociétés commerciales et du GIE
   (2014, directly applicable, no domestic transposition act), the Code
   du Travail 2012 (Loi n°12-12/AU), and the Code des Marchés Publics
@@ -48,7 +48,7 @@ This repo carries a **country-level regional-culture catalog**
 Wave 1, in `com-junkawasaki/root`) — national dishes, protected products,
 beverages, crafts, festivals and heritage sites for the Comoros:
 
-- `src/culture/facts.cljc` — the catalog, source of truth (keyed by
+- `src/culture/facts.cljk` — the catalog, source of truth (keyed by
   uppercase ISO3, mirroring the fleet's `statute.facts` convention).
 - `schema/culture.edn` — DataScript schema.
 - `data/culture-tx.edn` — derived DataScript tx-data (regenerated from
